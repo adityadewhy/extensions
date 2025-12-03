@@ -1,0 +1,22 @@
+
+{
+  "manifest_version": 3,
+  "name": "Rotate Videos 90°",
+  "version": "1.1",
+  "description": "Rotate all videos on the page by 90 degrees using button or keyboard shortcut.",
+  "action": {
+    "default_title": "Rotate Video 90°"
+  },
+  "permissions": ["scripting", "activeTab", "commands"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "rotate_videos": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Right"
+      },
+      "description": "Rotate all videos by 90 degrees"
+    }
+  }
+}
