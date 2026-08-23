@@ -6,7 +6,7 @@ chrome.action.onClicked.addListener((tab) => {
 chrome.commands.onCommand.addListener((command) => {
   if (command === "rotate_videos") {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      rotate(tabs[0]);
+      if (tabs[0]) rotate(tabs[0]);
     });
   }
 });
@@ -23,6 +23,7 @@ function rotateVideos() {
     let angle = parseInt(v.dataset.angle || "0", 10);
     angle = (angle + 90) % 360;
     v.dataset.angle = angle;
+
     v.style.transform = `rotate(${angle}deg)`;
     v.style.transformOrigin = "center center";
   });
